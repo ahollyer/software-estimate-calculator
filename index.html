@@ -89,7 +89,8 @@
           <!-- Calculate -->
           <div class="form-group text-center">
             <button onclick="calculateWeightedEstimate()" type="button" class="btn btn-primary btn-lg">Calculate</button>
-            <div id="errorMessage" class="alert alert-danger mt-1" role="alert">Uh oh! You must fill in all form fields.</div>
+            <div id="nullValuesError" class="alert alert-danger mt-1 error-message" role="alert">Uh oh! You must fill in all form fields.</div>
+            <div id="nonPositiveError" class="alert alert-danger mt-1 error-message" role="alert">Every value must be greater than zero.</div>
             <p class="mt-1"><strong id="weightedEstimate"></strong></p>
           </div>
         </div>

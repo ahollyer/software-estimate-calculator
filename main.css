@@ -11,6 +11,6 @@ h1 {
   text-align: center;
 }
 
-#errorMessage {
+.error-message {
   display: none;
 }
