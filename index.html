@@ -2,13 +2,105 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--************************************************************************
+                                  Stylesheets
+    *************************************************************************-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <title>Estimate Calculator</title>
   </head>
   <body>
-    <h1>Weighted Estimate Calculator</h1>
-
+    <div class="container" style="max-width:400px">
+      <div class="row">
+        <div class="col">
+          <h1 class="mt-3">Weighted Estimate Calculator</h1>
+          <!-- Instructions -->
+          <p>
+            <a data-toggle="collapse" href="#instructions" role="button" aria-expanded="false" aria-controls="collapseExample">Instructions</a>
+          </p>
+          <div class="collapse" id="instructions">
+            <div class="card card-body">
+              <p>Think of the task you need to do. Then input your best guess for a low, mid, and high estimate.</p>
+              <p>Your estimate can be in hours, days, dollars, etc. Use whatever unit makes sense for the task.</p>
+              <p><strong>How does it work?</strong><br>The calculator takes a weighted average favoring your mid-range estimate.</p>
+              <p>The formula used by this calculator is: Weighted = (Low + (4*Mid) + High)/6</p>
+            </div>
+          </div>
+          <!-- Uses -->
+          <p>
+            <a data-toggle="collapse" href="#uses" role="button" aria-expanded="false" aria-controls="collapseExample">Uses</a>
+          </p>
+          <div class="collapse" id="uses">
+            <div class="card card-body">
+              <p>The calculator was created to assist with estimating hours for software development projects. Other possible uses:</p>
+              <ul>
+                <li>Estimates for Hourly Work</li>
+                <li>Time Needed for School Project</li>
+                <li>Money Needed for an Event</li>
+                <li>Employees/Contractors Needed for a Job</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Example -->
+          <p>
+            <a data-toggle="collapse" href="#examples" role="button" aria-expanded="false" aria-controls="collapseExample">Example</a>
+          </p>
+          <div class="collapse" id="examples">
+            <div class="card card-body">
+              <p>How long will it take, in hours, to build this calculator?</p>
+              <p><strong>Low:</strong> 1</p>
+              <p><strong>Mid:</strong> 2</p>
+              <p><strong>High:</strong> 8</p>
+              <p><strong>Weighted Estimate: 2.83 hours</strong></p>
+            </div>
+          </div>
+          <!-- Low -->
+          <div class="form-group">
+            <div class="input-group input-group-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-lg">Low</span>
+              </div>
+              <input id="low" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+            </div>
+            <small id="lowHelp" class="form-text text-muted">If everything goes perfectly and it's easier than I thought.</small>
+          </div>
+          <!-- Mid -->
+          <div class="form-group">
+            <div class="input-group input-group-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-lg">Mid</span>
+              </div>
+              <input id="mid" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+            </div>
+            <small id="lowHelp" class="form-text text-muted">It will most likely be this much, I think.</small>
+          </div>
+          <!-- High -->
+          <div class="form-group">
+            <div class="input-group input-group-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-lg">High</span>
+              </div>
+              <input id="high" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+            </div>
+            <small id="lowHelp" class="form-text text-muted">Worst case scenario! If everything goes wrong, it could be this much.</small>
+          </div>
+          <!-- Calculate -->
+          <div class="form-group text-center">
+            <button onclick="calculateWeightedEstimate()" type="button" class="btn btn-primary btn-lg">Calculate</button>
+            <div id="errorMessage" class="alert alert-danger mt-1" role="alert">Uh oh! You must fill in all form fields.</div>
+            <p class="mt-1"><strong id="weightedEstimate"></strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--************************************************************************
+                                    Scripts
+    *************************************************************************-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="/main.js"></script>
   </body>
 </html>
