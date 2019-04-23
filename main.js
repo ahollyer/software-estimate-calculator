@@ -69,3 +69,11 @@ function showNonPositiveError() {
 function hideNonPositiveError() {
   nonPositiveError.style.display = 'none';
 }
+
+/* Run the calculateWeightedEstimate function when user presses "Enter" */
+window.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    calculateWeightedEstimate();
+  }
+});
